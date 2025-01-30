@@ -1,2 +1,2 @@
 # Cosmic
-Reverse Engineering Made Easy
+Currently in development.
