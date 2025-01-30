@@ -1,0 +1,24 @@
+{
+  "de4dot": {
+    "Download": {
+      "URL": "https://github.com/vee2xx/de4dot-built-binaries/archive/refs/heads/main.zip",
+      "IsCompressed": true,
+    },
+    "Execution": {
+      "FileLocation": "net45/de4dot-x64.exe",
+      "Arguments": ["--scan-dir", "{TARGET_PATH}"],
+      "Requirements": ["DOTNET9"],
+      "RunAsAdmin": false,
+    },
+    "Metadata": {
+      "Name": "de4dot",
+      "Description": "A .NET deobfuscator and unpacker.",
+      "Author": "0xd4d",
+      "Tags": ["deobfuscation", "reverse-engineering", ".NET"]
+    },
+    "Compatibility": {
+      "OS": ["Windows"],
+      "Architectures": ["x86", "x64"]
+    },
+  }
+}
