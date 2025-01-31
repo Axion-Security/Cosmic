@@ -6,7 +6,7 @@
     },
     "Execution": {
       "FileLocation": "de4dot-built-binaries-main/net45/de4dot-x64.exe",
-      "Arguments": [""],
+      "Arguments": ["%FILE%"],
       "Requirements": ["DOTNET(4.5)"],
       "RunAsAdmin": false
     },
