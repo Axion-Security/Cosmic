@@ -3,7 +3,7 @@
 **Reverse Engineering at Lightspeed**  
 *Modular Toolkit for Binary Exploration*
 
-![image](https://github.com/user-attachments/assets/aec34d23-4369-41c2-b763-f7fa86669cd4)
+![image](https://github.com/user-attachments/assets/7ad947ef-efd4-4582-a36f-57a217e69757)
 
 ---
 
