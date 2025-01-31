@@ -17,8 +17,8 @@
       "Tags": ["deobfuscation", "reverse-engineering", ".NET"]
     },
     "Compatibility": {
-      "OS": ["Windows"],
-      "Architectures": ["x86", "x64"]
+      "OS": ["windows"],
+      "Architectures": ["amd64", "386"]
     }
   }
 }
