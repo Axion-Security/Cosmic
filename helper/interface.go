@@ -2,6 +2,7 @@ package helper
 
 import (
 	"fmt"
+	"github.com/pterm/pterm"
 	"os"
 	"os/exec"
 	"strconv"
@@ -15,7 +16,7 @@ func Clear() {
 
 func ASCII() {
 	fmt.Println()
-	fmt.Println(`  *     ██████╗ ██████╗ ███████╗███╗   ███╗██╗ ██████╗    *
+	pterm.DefaultCenter.Println(`  *     ██████╗ ██████╗ ███████╗███╗   ███╗██╗ ██████╗    *
  *     ██╔════╝██╔═══██╗██╔════╝████╗ ████║██║██╔════╝      *
     *  ██║     ██║   ██║███████╗██╔████╔██║██║██║      *    ✧
   ✧    ██║     ██║   ██║╚════██║██║╚██╔╝██║██║██║         *

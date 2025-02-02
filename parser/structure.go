@@ -16,6 +16,7 @@ type Application struct {
 		Description string   `json:"Description"`
 		Author      string   `json:"Author"`
 		Tags        []string `json:"Tags"`
+		Category    string   `json:"Category"`
 	} `json:"Metadata"`
 	Compatibility struct {
 		OS            []string `json:"OS"`

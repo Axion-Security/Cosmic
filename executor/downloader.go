@@ -35,12 +35,26 @@ func extractZip(zipFile, extractDir string) error {
 	}
 	defer r.Close()
 
+	absExtractDir, err := filepath.Abs(extractDir)
+	if err != nil {
+		return fmt.Errorf("failed to get absolute path for extraction directory: %v", err)
+	}
+
 	if err := os.MkdirAll(extractDir, os.ModePerm); err != nil {
 		return fmt.Errorf("failed to create extraction directory: %v", err)
 	}
 
 	for _, f := range r.File {
 		filePath := filepath.Join(extractDir, f.Name)
+
+		// Validate file path to prevent Zip Slip vulnerability
+		absFilePath, err := filepath.Abs(filePath)
+		if err != nil {
+			return fmt.Errorf("failed to get absolute path for file: %v", err)
+		}
+		if !strings.HasPrefix(absFilePath, absExtractDir+string(filepath.Separator)) {
+			return fmt.Errorf("invalid file path: %s escapes extraction directory", f.Name)
+		}
 
 		if f.FileInfo().IsDir() {
 			if err := os.MkdirAll(filePath, os.ModePerm); err != nil {
@@ -49,19 +63,25 @@ func extractZip(zipFile, extractDir string) error {
 			continue
 		}
 
+		// Ensure parent directory exists
+		if err := os.MkdirAll(filepath.Dir(filePath), os.ModePerm); err != nil {
+			return fmt.Errorf("failed to create parent directory: %v", err)
+		}
+
 		rc, err := f.Open()
 		if err != nil {
 			return fmt.Errorf("failed to open file in ZIP: %v", err)
 		}
-		defer rc.Close()
 
 		outFile, err := os.Create(filePath)
 		if err != nil {
+			rc.Close()
 			return fmt.Errorf("failed to create output file: %v", err)
 		}
-		defer outFile.Close()
 
 		_, err = io.Copy(outFile, rc)
+		rc.Close()
+		outFile.Close()
 		if err != nil {
 			return fmt.Errorf("failed to write file content: %v", err)
 		}

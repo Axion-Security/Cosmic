@@ -20,8 +20,6 @@ func CheckRequirements(requirements []string) bool {
 			if !CheckPython(version) {
 				return false
 			}
-		} else {
-			return false
 		}
 	}
 	return true

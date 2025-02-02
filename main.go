@@ -5,7 +5,9 @@ import (
 	"Cosmic/helper"
 	"Cosmic/parser"
 	"fmt"
+	"github.com/pterm/pterm"
 	"path/filepath"
+	"strconv"
 )
 
 func main() {
@@ -35,20 +37,36 @@ func displayTools(toolsList string) {
 	helper.ASCII()
 	tools, _ := parser.FetchTools(toolsList)
 
-	for _, tool := range tools {
-		helper.PrintLine(tool.Metadata.Name, fmt.Sprintf("%s: %s", tool.Metadata.Name, tool.Metadata.Description), true)
+	tableData := pterm.TableData{
+		{"Option", "Name", "Description"},
 	}
 
-	helper.PrintLine(">", "", false)
-	var tool string
-	fmt.Scanln(&tool)
+	toolMap := make(map[int]parser.Application)
+	option := 1
 
-	if _, ok := tools[tool]; !ok {
-		displayTools(toolsList)
+	for _, tool := range tools {
+		tableData = append(tableData, []string{strconv.Itoa(option), tool.Metadata.Name, tool.Metadata.Description})
+		toolMap[option] = tool
+		option++
+	}
+
+	renderedTable, err := pterm.DefaultTable.WithHasHeader().WithData(tableData).Srender()
+	if err != nil {
+		fmt.Println("Error rendering table:", err)
 		return
 	}
 
-	displayData(tools[tool])
+	pterm.DefaultCenter.WithCenterEachLineSeparately().Println(renderedTable)
+
+	helper.PrintLine(">", "", false)
+	var toolNumber int
+	fmt.Scanln(&toolNumber)
+
+	if selectedTool, ok := toolMap[toolNumber]; ok {
+		displayData(selectedTool)
+	} else {
+		displayTools(toolsList)
+	}
 }
 
 func selectTargetFile() {
