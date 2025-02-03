@@ -22,6 +22,29 @@
       "Architectures": ["amd64", "386"]
     }
   },
+  "de4dot-cex": {
+    "Download": {
+      "URL": "https://github.com/ViRb3/de4dot-cex/releases/download/v4.0.0/de4dot-cex.zip",
+      "IsCompressed": true
+    },
+    "Execution": {
+      "FileLocation": "de4dot-x64.exe",
+      "Arguments": ["%FILE%"],
+      "Requirements": [],
+      "RunAsAdmin": false
+    },
+    "Metadata": {
+      "Name": "de4dot-cex",
+      "Description": "Deobfuscator for Vanilla ConfuserEx based on de4dot",
+      "Author": "ViRb3",
+      "Tags": ["confuserex"],
+      "Category": "ConfuserEx"
+    },
+    "Compatibility": {
+      "OS": ["windows"],
+      "Architectures": ["amd64"]
+    }
+  },
   "VMUnprotect": {
     "Download": {
       "URL": "https://github.com/void-stack/VMUnprotect/releases/download/1.0.0.2/VMUnprotect.3.6.0-net48.zip",
@@ -36,7 +59,8 @@
     },
     "Metadata": {
       "Name": "VMUnprotect",
-      "Description": "VMProtect Unpacker",
+      "Description": "VMProtect Unpacker (<=3.6.0)",
+
       "Author": "void-stack",
       "Tags": ["vmprotect"],
       "Category": "VMProtect"
@@ -60,7 +84,7 @@
     },
     "Metadata": {
       "Name": "VMUnprotect Dumper",
-      "Description": "VMProtect Dumper",
+      "Description": "VMProtect Dumper (<=3.6.0)",
       "Author": "void-stack",
       "Tags": ["vmprotect"],
       "Category": "VMProtect"
@@ -94,23 +118,23 @@
       "Architectures": ["amd64", "386"]
     }
   },
-  "de4dot-cex": {
+  "AgileNETSlayer": {
     "Download": {
-      "URL": "https://github.com/ViRb3/de4dot-cex/releases/download/v4.0.0/de4dot-cex.zip",
+      "URL": "https://github.com/SychicBoy/AgileDotNetSlayer/releases/download/v1.4.0.0/AgileDotNetSlayer.zip",
       "IsCompressed": true
     },
     "Execution": {
-      "FileLocation": "de4dot-x64.exe",
+      "FileLocation": "AgileDotNetSlayer.exe",
       "Arguments": ["%FILE%"],
       "Requirements": [],
-      "RunAsAdmin": false
+      "RunAsAdmin": true
     },
     "Metadata": {
-      "Name": "de4dot-cex",
-      "Description": "Deobfuscator for Vanilla ConfuserEx based on de4dot",
-      "Author": "ViRb3",
-      "Tags": ["confuserex"],
-      "Category": "ConfuserEx"
+      "Name": "AgileDotNetSlayer",
+      "Description": "Deobfuscator for Agile.NET",
+      "Author": "SychicBoy",
+      "Tags": ["agilenet"],
+      "Category": "Agile.NET"
     },
     "Compatibility": {
       "OS": ["windows"],

@@ -1,0 +1,48 @@
+{
+  "DetectItEasy": {
+    "Download": {
+      "URL": "https://github.com/horsicq/DIE-engine/releases/download/3.10/die_win64_portable_3.10_x64.zip",
+      "IsCompressed": true
+    },
+    "Execution": {
+      "FileLocation": "die.exe",
+      "Arguments": ["%FILE%"],
+      "Requirements": [],
+      "RunAsAdmin": false
+    },
+    "Metadata": {
+      "Name": "Detect It Easy",
+      "Description": "File signature analyzer.",
+      "Author": "horsicq",
+      "Tags": ["info"],
+      "Category": "Info"
+    },
+    "Compatibility": {
+      "OS": ["windows"],
+      "Architectures": ["amd64", "386"]
+    }
+  },
+  "dnSpyEx": {
+    "Download": {
+      "URL": "https://github.com/dnSpyEx/dnSpy/releases/download/v6.5.1/dnSpy-net-win64.zip",
+      "IsCompressed": true
+    },
+    "Execution": {
+      "FileLocation": "dnSpy.exe",
+      "Arguments": ["%FILE%"],
+      "Requirements": [],
+      "RunAsAdmin": false
+    },
+    "Metadata": {
+      "Name": "dnSpy Mod",
+      "Description": ".NET assembly editor, decompiler, and debugger.",
+      "Author": "dnSpyEx",
+      "Tags": ["info"],
+      "Category": "Info"
+    },
+    "Compatibility": {
+      "OS": ["windows"],
+      "Architectures": ["amd64"]
+    }
+  }
+}

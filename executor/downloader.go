@@ -28,6 +28,26 @@ func init() {
 	}
 }
 
+func ClearDownloadFolder() {
+	dir, _ := os.UserConfigDir()
+	ApplicationDirectoryX := fmt.Sprintf("%s\\%s", dir, "Cosmic")
+
+	files, err := os.ReadDir(ApplicationDirectoryX)
+	if err != nil {
+		log.Printf("Failed to read directory: %v", err)
+		return
+	}
+
+	for _, file := range files {
+		filePath := filepath.Join(ApplicationDirectoryX, file.Name())
+		if file.IsDir() {
+			if err := os.RemoveAll(filePath); err != nil {
+				log.Printf("Failed to remove folder %s: %v", filePath, err)
+			}
+		}
+	}
+}
+
 func extractZip(zipFile, extractDir string) error {
 	r, err := zip.OpenReader(zipFile)
 	if err != nil {

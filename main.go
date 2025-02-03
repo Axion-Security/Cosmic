@@ -20,6 +20,8 @@ func displayCategories() {
 	helper.Clear()
 	helper.ASCII()
 	helper.PrintLine("1", "C#", true)
+	helper.PrintLine("2", "File Information", true)
+	helper.PrintLine("X", "Clear Cosmic Download Folder", true)
 	helper.PrintLine(">", "", false)
 	var category string
 	fmt.Scanln(&category)
@@ -27,9 +29,23 @@ func displayCategories() {
 	switch category {
 	case "1":
 		displayTools("C%23")
+	case "2":
+		displayTools("Info")
+	case "X":
+		ClearDownloadFolder()
 	default:
 		displayCategories()
 	}
+}
+
+func ClearDownloadFolder() {
+	helper.Clear()
+	helper.ASCII()
+	helper.PrintLine(">", "Clearing Cosmic Download Folder...", true)
+	executor.ClearDownloadFolder()
+	helper.PrintLine("~", "Press enter to go back...", false)
+	fmt.Scanln()
+	displayCategories()
 }
 
 func displayTools(toolsList string) {
