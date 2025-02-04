@@ -14,6 +14,12 @@ func Clear() {
 	cmd.Run()
 }
 
+func SetTitle(title string) {
+	cmd := exec.Command("cmd", "/c", "title", title)
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
+
 func ASCII() {
 	fmt.Println()
 	pterm.DefaultCenter.Println(`  *     ██████╗ ██████╗ ███████╗███╗   ███╗██╗ ██████╗    *

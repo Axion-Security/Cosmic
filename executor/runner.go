@@ -11,16 +11,12 @@ import (
 )
 
 func checkCompatibility(tool parser.Application) bool {
+	// Possible OS: linux, darwin, windows
+	// Possible Architectures: 386, amd64, arm, arm64
+
 	var OS = tool.Compatibility.OS
 	var Arch = tool.Compatibility.Architectures
-
-	// windows = Windows
-	// darwin = macOS
-	// linux = Linux
 	var UserOS = runtime.GOOS
-
-	// amd64 = 64-bit
-	// 386 = 32-bit
 	var UserArch = os.Getenv("PROCESSOR_ARCHITECTURE")
 
 	for _, o := range OS {
@@ -53,8 +49,12 @@ func ExecuteFile(filePath string, args []string, tool parser.Application) error 
 
 	var cmd *exec.Cmd
 	if tool.Execution.RunAsAdmin {
-		powershellCommand := fmt.Sprintf("Start-Process -FilePath '%s' -ArgumentList '%s' -Verb RunAs", filePath, strings.Join(ReplaceArgs(args), "', '"))
-		cmd = exec.Command("powershell", "-Command", powershellCommand)
+		if runtime.GOOS == "windows" {
+			powershellCommand := fmt.Sprintf("Start-Process -FilePath '%s' -ArgumentList '%s' -Verb RunAs", filePath, strings.Join(ReplaceArgs(args), "', '"))
+			cmd = exec.Command("powershell", "-Command", powershellCommand)
+		} else {
+			cmd = exec.Command("sudo", filePath, strings.Join(ReplaceArgs(args), "', '"))
+		}
 	} else {
 		cmd = exec.Command(filePath, ReplaceArgs(args)...)
 	}

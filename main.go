@@ -10,7 +10,10 @@ import (
 	"strconv"
 )
 
+var Version = "1.3"
+
 func main() {
+	helper.SetTitle(fmt.Sprintf("Cosmic | %s", Version))
 	selectTargetFile()
 	displayCategories()
 	main()
@@ -19,9 +22,10 @@ func main() {
 func displayCategories() {
 	helper.Clear()
 	helper.ASCII()
+	helper.PrintLine("!", "Select a category", true)
 	helper.PrintLine("1", "C#", true)
 	helper.PrintLine("2", "File Information", true)
-	helper.PrintLine("X", "Clear Cosmic Download Folder", true)
+	helper.PrintLine("X", "Clear Downloads", true)
 	helper.PrintLine(">", "", false)
 	var category string
 	fmt.Scanln(&category)
