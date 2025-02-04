@@ -3,32 +3,27 @@
 **Reverse Engineering at Lightspeed**  
 *Modular Toolkit for Binary Exploration*
 
-![image](https://github.com/user-attachments/assets/7ad947ef-efd4-4582-a36f-57a217e69757)
+![image](https://github.com/user-attachments/assets/82319258-38dd-4cb3-96c2-819b3f8a8b66)
 
 ---
 
 ## 🚀 Core Features
 
 ### 📦 **Smart Execution System**
-- Auto-handle compressed/encrypted payloads 🗜️
+- Auto-handle compressed files 🗜️
 - Admin privilege escalation support ⚡
 - Cross-platform argument templating 📝
 
 ### 🌐 **Universal Compatibility**
 - Multi-OS support (Windows/Linux/macOS) 🖥️
-- x64/ARM architecture ready 🔧
-- Dependency conflict resolution 🧩
+- All architecture's ready 🔧
 
 ### 🔍 **Tool Intelligence**
 - Centralized metadata profiles 📄
-  ```json
-  "Metadata": {
-    "Name": "DotPeek Sharp",
-    "Tags": ["C#", "Decompiler", "Debugging"]
-  }
-  ```
 - Automated requirement checks ✅
-- Execution history tracking 📆
+- Cloud-Powered Tool Sourcing 🌩️
+
+and more!
 
 ---
 
